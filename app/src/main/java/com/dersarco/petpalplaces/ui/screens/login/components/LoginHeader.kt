@@ -2,6 +2,7 @@ package com.dersarco.petpalplaces.ui.screens.login.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -24,23 +25,33 @@ import com.dersarco.petpalplaces.ui.theme.SpecialPurple
 fun LoginHeader(
     paddingValues: PaddingValues
 ) {
-
     Column(
         modifier = Modifier
-            .padding(paddingValues)
-            .fillMaxWidth()
-            .padding(top = 48.dp),
+            .fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Top,
     ) {
-        Image(
-            modifier = Modifier.size(96.dp),
-            imageVector = ImageVector.vectorResource(id = R.drawable.logo),
-            contentDescription = "Logo",
-            contentScale = ContentScale.Fit
-        )
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(paddingValues)
+        ) {
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 48.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Top,
+            ) {
+                Image(
+                    modifier = Modifier.size(96.dp),
+                    imageVector = ImageVector.vectorResource(id = R.drawable.logo),
+                    contentDescription = "Logo",
+                    contentScale = ContentScale.Fit
+                )
+            }
+        }
     }
-
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
