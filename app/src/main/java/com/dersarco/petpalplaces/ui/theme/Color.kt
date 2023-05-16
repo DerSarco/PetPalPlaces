@@ -12,3 +12,4 @@ val Pink40 = Color(0xFF7D5260)
 
 
 val SpecialPurple = Color(0xFFBF6CFE)
+val SpecialGray= Color(0xFFB2A7B8)
