@@ -52,7 +52,8 @@ fun PetPalPlacesTheme(
     val colorScheme = when {
         dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
             val context = LocalContext.current
-            if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
+            //if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
+            if (darkTheme) DarkColorScheme else LightColorScheme
         }
 
         darkTheme -> DarkColorScheme
@@ -62,22 +63,17 @@ fun PetPalPlacesTheme(
 
     val systemUiController = rememberSystemUiController()
     SideEffect {
-        systemUiController.setNavigationBarColor(
-            color = Color.White,
+        systemUiController.setSystemBarsColor(
+            //color = if (darkTheme) SpecialPurpleDark else SpecialPurple,
+            color =SpecialPurple,
+            //darkIcons = !darkTheme
             darkIcons = false
         )
-        // navigation bar
-        systemUiController.isNavigationBarVisible = true
-        // status bar
-        systemUiController.isStatusBarVisible = false
-
-        // system bars
-        // systemUiController.isSystemBarsVisible = false
     }
     if (!view.isInEditMode) {
         SideEffect {
             val window = (view.context as Activity).window
-            window.statusBarColor = colorScheme.primary.toArgb()
+            window.statusBarColor = colorScheme.background.toArgb()
             WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = darkTheme
         }
     }

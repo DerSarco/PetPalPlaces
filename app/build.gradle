@@ -61,7 +61,7 @@ dependencies {
     implementation "androidx.compose.material:material-icons-extended:1.4.3"
 
     // Accompanist
-    implementation "com.google.accompanist:accompanist-systemuicontroller:0.28.0"
+    implementation "com.google.accompanist:accompanist-systemuicontroller:0.30.1"
 
 
     testImplementation 'junit:junit:4.13.2'

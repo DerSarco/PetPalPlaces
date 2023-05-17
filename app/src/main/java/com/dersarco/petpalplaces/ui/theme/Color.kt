@@ -12,4 +12,15 @@ val Pink40 = Color(0xFF7D5260)
 
 
 val SpecialPurple = Color(0xFFBF6CFE)
-val SpecialGray= Color(0xFFB2A7B8)
+val SpecialGray = Color(0xFFB2A7B8)
+
+val SpecialBlack = Color(0xFF201925)
+val SpecialWhite = Color(0xFFFDFDFD)
+val SpecialRed = Color(0xFFF54848)
+
+
+data class CustomButtonColors(
+    val background: Color = SpecialBlack,
+    val border: Color = SpecialBlack,
+    val icon: Color = SpecialWhite,
+)

@@ -13,6 +13,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import com.dersarco.petpalplaces.ui.screens.login.LoginScreen
+import com.dersarco.petpalplaces.ui.screens.preview.PreviewScreen
 import com.dersarco.petpalplaces.ui.theme.PetPalPlacesTheme
 
 class MainActivity : ComponentActivity() {
@@ -25,7 +26,8 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    LoginScreen()
+                    //LoginScreen()
+                    PreviewScreen()
                 }
             }
         }
