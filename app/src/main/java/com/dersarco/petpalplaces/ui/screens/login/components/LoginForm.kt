@@ -50,16 +50,17 @@ fun LoginForm(paddingValues: PaddingValues) {
         ) {}
         Card(
             modifier = Modifier
-                .fillMaxSize()
-                .padding(top = 48.dp),
+                .padding(top = 48.dp)
+                .fillMaxSize(),
             colors = CardDefaults.cardColors(
                 containerColor = Color.White
             )
         ) {
             Column(
-                modifier = Modifier.fillMaxSize(),
+                modifier = Modifier
+                    .fillMaxSize(),
                 horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.Top
+                verticalArrangement = Arrangement.Center
             ) {
                 Spacer(modifier = Modifier.height(48.dp))
                 Text(

@@ -27,7 +27,7 @@ fun LoginScreen() {
                 modifier = Modifier.matchParentSize(),
                 painter = painterResource(id = R.drawable.background_mobile),
                 contentDescription = "Background",
-                contentScale = ContentScale.FillWidth
+                contentScale = ContentScale.FillBounds
             )
             Column(modifier = Modifier.fillMaxSize()) {
                 LoginHeader(padding)
