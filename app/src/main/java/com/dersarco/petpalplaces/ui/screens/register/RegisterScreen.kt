@@ -1,4 +1,4 @@
-package com.dersarco.petpalplaces.ui.screens.login
+package com.dersarco.petpalplaces.ui.screens.register
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
@@ -13,12 +13,12 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.dersarco.petpalplaces.R
 import com.dersarco.petpalplaces.ui.screens.components.Header
-import com.dersarco.petpalplaces.ui.screens.login.components.LoginForm
+import com.dersarco.petpalplaces.ui.screens.register.components.RegisterForm
 import com.dersarco.petpalplaces.ui.theme.SpecialPurple
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun LoginScreen() {
+fun RegisterScreen() {
     Scaffold(
         containerColor = SpecialPurple
     ) { padding ->
@@ -31,7 +31,7 @@ fun LoginScreen() {
             )
             Column(modifier = Modifier.fillMaxSize()) {
                 Header(padding)
-                LoginForm(padding)
+                RegisterForm(padding)
             }
         }
     }
@@ -39,6 +39,6 @@ fun LoginScreen() {
 
 @Preview
 @Composable
-fun LoginScreenPreview() {
-    LoginScreen()
+fun RegisterScreenPreview() {
+    RegisterScreen()
 }

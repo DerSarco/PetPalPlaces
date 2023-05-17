@@ -1,12 +1,10 @@
-package com.dersarco.petpalplaces.ui.screens.login.components
+package com.dersarco.petpalplaces.ui.screens.register.components
 
 import android.util.Log
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -29,12 +27,14 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.dersarco.petpalplaces.ui.screens.components.MyClickableText
+import com.dersarco.petpalplaces.ui.screens.login.components.LoginFormFooter
+import com.dersarco.petpalplaces.ui.screens.login.components.MyOutlinedLoginText
 import com.dersarco.petpalplaces.ui.theme.SpecialPurple
 import com.dersarco.petpalplaces.ui.theme.quickSandFamily
 
 @Composable
-fun LoginForm(paddingValues: PaddingValues) {
-    // TODO: Add the state for the login credentials
+fun RegisterForm(paddingValues: PaddingValues) {
+    // TODO: Add the state for the register credentials
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -65,16 +65,13 @@ fun LoginForm(paddingValues: PaddingValues) {
             ) {
                 Spacer(modifier = Modifier.height(48.dp))
                 Text(
-                    text = "Welcome Back",
+                    text = "Create an account",
                     fontFamily = quickSandFamily,
                     style = MaterialTheme.typography.titleLarge,
                     fontWeight = FontWeight.Bold
                 )
                 Spacer(modifier = Modifier.height(8.dp))
-                MyClickableText(
-                    text = "Don't have an account?",
-                    clickableText = "Register"
-                )
+                MyClickableText(text = "Already a member?", clickableText = "Login")
                 Spacer(modifier = Modifier.height(48.dp))
                 MyOutlinedLoginText(onValueChanged = { Log.d("written", it) },
                     placeholderText = "Enter Your Username",
@@ -88,23 +85,17 @@ fun LoginForm(paddingValues: PaddingValues) {
                     isVisible = false,
                     hasIcon = true,
                 )
+                Spacer(modifier = Modifier.height(16.dp))
+                MyOutlinedLoginText(
+                    onValueChanged = { Log.d("written", it) },
+                    placeholderText = "Confirm your password",
+                    onIconPressed = {},
+                    isPassword = true,
+                    isVisible = false,
+                    hasIcon = true,
+                )
                 Spacer(modifier = Modifier.height(12.dp))
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = 16.dp),
-                    horizontalArrangement = Arrangement.End
-                ) {
-                    Text(
-                        modifier = Modifier.clickable {
-                            Log.d("Forgot password", "Clicked!")
-                        },
-                        text = "Forgot your password?",
-                        fontFamily = quickSandFamily,
-                        fontWeight = FontWeight.SemiBold,
-                        color = SpecialPurple
-                    )
-                }
+                Spacer(modifier = Modifier.height(16.dp))
                 Spacer(modifier = Modifier.height(96.dp))
                 ElevatedButton(
                     modifier = Modifier
@@ -116,7 +107,11 @@ fun LoginForm(paddingValues: PaddingValues) {
                     shape = RoundedCornerShape(10.dp),
                     onClick = { /*TODO*/ },
                 ) {
-                    Text(text = "LOGIN", fontFamily = quickSandFamily, fontWeight = FontWeight.Bold)
+                    Text(
+                        text = "SIGN UP",
+                        fontFamily = quickSandFamily,
+                        fontWeight = FontWeight.Bold
+                    )
                 }
                 Spacer(modifier = Modifier.height(24.dp))
                 LoginFormFooter()
@@ -129,8 +124,8 @@ fun LoginForm(paddingValues: PaddingValues) {
 @OptIn(ExperimentalMaterial3Api::class)
 @Preview
 @Composable
-fun LoginFormPreview() {
+fun RegisterFormPreview() {
     Scaffold { padding ->
-        LoginForm(padding)
+        RegisterForm(padding)
     }
 }

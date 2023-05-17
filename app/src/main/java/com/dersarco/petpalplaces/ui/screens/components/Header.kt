@@ -1,4 +1,4 @@
-package com.dersarco.petpalplaces.ui.screens.login.components
+package com.dersarco.petpalplaces.ui.screens.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -22,7 +22,7 @@ import com.dersarco.petpalplaces.R
 import com.dersarco.petpalplaces.ui.theme.SpecialPurple
 
 @Composable
-fun LoginHeader(
+fun Header(
     paddingValues: PaddingValues
 ) {
     Column(
@@ -61,6 +61,6 @@ fun LoginHeaderPrev() {
     Scaffold(
         containerColor = SpecialPurple
     ) { padding ->
-        LoginHeader(padding)
+        Header(padding)
     }
 }

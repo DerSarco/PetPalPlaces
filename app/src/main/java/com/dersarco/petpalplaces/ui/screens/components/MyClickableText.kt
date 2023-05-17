@@ -1,4 +1,4 @@
-package com.dersarco.petpalplaces.ui.screens.login.components
+package com.dersarco.petpalplaces.ui.screens.components
 
 import android.util.Log
 import androidx.compose.foundation.text.ClickableText
@@ -12,7 +12,10 @@ import com.dersarco.petpalplaces.ui.theme.SpecialPurple
 import com.dersarco.petpalplaces.ui.theme.quickSandFamily
 
 @Composable
-fun MyClickableText() {
+fun MyClickableText(
+    text: String,
+    clickableText: String
+) {
     val annotatedString = buildAnnotatedString {
         pushStringAnnotation(tag = "register", annotation = "goToRegister")
         withStyle(
@@ -21,7 +24,7 @@ fun MyClickableText() {
                 fontFamily = quickSandFamily
             )
         ) {
-            append("Don't have an account? ")
+            append("$text ")
         }
         withStyle(
             style = SpanStyle(
@@ -30,7 +33,7 @@ fun MyClickableText() {
                 fontFamily = quickSandFamily,
             )
         ) {
-            append("Register")
+            append(clickableText)
         }
         pop()
     }
@@ -47,5 +50,5 @@ fun MyClickableText() {
 @Preview
 @Composable
 fun MyCliclableTextPrev() {
-    MyClickableText()
+    MyClickableText("text", "clickable")
 }
