@@ -30,7 +30,7 @@ fun LoginScreen() {
                 contentScale = ContentScale.FillBounds
             )
             Column(modifier = Modifier.fillMaxSize()) {
-                Header(padding)
+                Header(padding, R.drawable.logo)
                 LoginForm(padding)
             }
         }
