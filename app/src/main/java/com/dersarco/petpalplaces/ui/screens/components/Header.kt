@@ -24,7 +24,7 @@ import com.dersarco.petpalplaces.ui.theme.SpecialPurple
 
 @Composable
 fun Header(
-    paddingValues: PaddingValues,
+    paddingValues: PaddingValues = PaddingValues.Absolute(),
     @DrawableRes logo: Int
 ) {
     Column(
