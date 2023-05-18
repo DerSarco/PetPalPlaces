@@ -8,6 +8,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
@@ -15,6 +16,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.dersarco.petpalplaces.ui.screens.login.LoginScreen
 import com.dersarco.petpalplaces.ui.screens.preview.PreviewScreen
 import com.dersarco.petpalplaces.ui.theme.PetPalPlacesTheme
+import com.dersarco.petpalplaces.ui.theme.SpecialBlack
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,7 +26,7 @@ class MainActivity : ComponentActivity() {
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
+                    color = Color.Black
                 ) {
                     //LoginScreen()
                     PreviewScreen()

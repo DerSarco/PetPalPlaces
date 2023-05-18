@@ -44,6 +44,7 @@ fun Paragraph(
 )
 fun ParagraphPreview() {
     Box(modifier = Modifier.padding(21.dp)) {
+
         Paragraph(
             text = "Torres del Paine National Park is located in the Patagonia region of Chile, and it is widely considered one of the most stunning and diverse natural areas in the world. The park is characterized by its soaring mountains, sparkling lakes, vast glaciers, and pristine wilderness, offering breathtaking views at every turn."
         )
