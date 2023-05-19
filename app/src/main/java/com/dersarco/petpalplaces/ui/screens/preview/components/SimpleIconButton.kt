@@ -1,9 +1,10 @@
 package com.dersarco.petpalplaces.ui.screens.preview.components
 
-import androidx.compose.foundation.background
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -11,9 +12,9 @@ import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.blur
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
@@ -37,16 +38,15 @@ fun PetIconButton(
         modifier = modifier
             .wrapContentSize()
             .clip(RoundedCornerShape(percent = cornerRadiusPercent))
-            .border(1.dp, colors.border.copy(alpha = 0.4f), RoundedCornerShape(percent = cornerRadiusPercent))
             .clickable { onClick() },
         contentAlignment = Alignment.Center
-    ){
+    ) {
 
-        Box(modifier = Modifier
-            .size(size)
-            .clip(RoundedCornerShape(percent = cornerRadiusPercent))
-            .background(colors.background.copy(alpha = 0.2f))
-            .blur(1.dp))
+        BlurBox(
+            modifier = Modifier
+                .size(size)
+                .clip(RoundedCornerShape(percent = cornerRadiusPercent))
+        )
 
         Icon(
             modifier = Modifier
@@ -57,7 +57,6 @@ fun PetIconButton(
         )
     }
 }
-
 
 
 @Composable
@@ -95,12 +94,23 @@ fun HeartIconButtonPreview() {
 )
 fun HeartFillIconButtonPreview() {
     PetPalPlacesTheme {
-        PetIconButton(
-            colors = CustomButtonColors(
-                icon = SpecialRed,
-            ),
-            icon = ImageVector.vectorResource(id = R.drawable.ic_fill_heart),
-            onClick = {}
-        )
+        Box(
+            modifier = Modifier.fillMaxSize(),
+            contentAlignment = Alignment.Center
+        ) {
+
+            Image(
+                painter = painterResource(id = R.drawable.logo),
+                contentDescription = "blur test"
+            )
+
+            PetIconButton(
+                colors = CustomButtonColors(
+                    icon = SpecialRed,
+                ),
+                icon = ImageVector.vectorResource(id = R.drawable.ic_fill_heart),
+                onClick = {}
+            )
+        }
     }
 }

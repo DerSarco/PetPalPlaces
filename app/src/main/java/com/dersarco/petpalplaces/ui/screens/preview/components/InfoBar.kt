@@ -20,14 +20,14 @@ import com.dersarco.petpalplaces.ui.theme.SpecialYellow
 
 @Composable
 fun InfoBar(
-    modifier: Modifier = Modifier.fillMaxWidth(),
+    modifier: Modifier = Modifier,
     votes: String = "0",
     rating: String = "0",
     reviews: String = "0",
-    distance: Pair<String, String> = Pair("0", ""),
+    distance: String = "0",
 ) {
     Row(
-        modifier = modifier,
+        modifier = modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
     ) {
@@ -49,7 +49,7 @@ fun InfoBar(
                 text = SpecialWhite,
             ),
             icon = ImageVector.vectorResource(id = R.drawable.ic_fill_route),
-            distance = "${distance.first} ${distance.second}",
+            distance = distance,
         )
     }
 }
@@ -63,7 +63,7 @@ fun InfoBarPreview() {
             votes = 5_334.formatWithCommas(),
             rating = "3.8",
             reviews = "(${5_345.formatNumber()} reviews)",
-            distance = Pair("5", "mil"),
+            distance = "5 mil",
         )
     }
 }

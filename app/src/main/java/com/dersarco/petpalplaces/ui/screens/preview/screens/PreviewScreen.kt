@@ -25,10 +25,13 @@ import com.dersarco.petpalplaces.ui.screens.preview.components.NavigationBack
 import com.dersarco.petpalplaces.ui.screens.preview.components.PetIconButton
 import com.dersarco.petpalplaces.ui.screens.preview.components.ReviewTitle
 import com.dersarco.petpalplaces.ui.screens.preview.components.SlideImage
+import com.dersarco.petpalplaces.ui.screens.preview.events.PlacePreviewEvent
 import com.dersarco.petpalplaces.ui.screens.preview.state.PlacePreviewState
 import com.dersarco.petpalplaces.ui.theme.CustomButtonColors
 import com.dersarco.petpalplaces.ui.theme.PetPalPlacesTheme
+import com.dersarco.petpalplaces.ui.theme.SpecialPurple
 import com.dersarco.petpalplaces.ui.theme.SpecialRed
+import com.dersarco.petpalplaces.ui.theme.SpecialWhite
 
 
 @Composable
@@ -40,7 +43,18 @@ fun PreviewScreen() {
                 "https://razadeperro.com/wp-content/uploads/194146329_438787197451164_8444697227989279062_n.jpg",
                 "https://razadeperro.com/wp-content/uploads/193968429_141891607994621_5387995002231728550_n.jpg",
                 "https://razadeperro.com/wp-content/uploads/194631788_229112508660969_5271132824087601565_n.jpg",
-            )
+            ),
+            reviewTitle = "Tail-Wagging Trek in Torres del Paine",
+            reviewDescription = "Torres del Paine National Park is located in the Patagonia region of Chile, and it is widely considered one of the most stunning and diverse natural areas in the world. The park is characterized by its soaring mountains, sparkling lakes, vast glaciers, and pristine wilderness, offering breathtaking views at every turn.",
+            reviewRating = 3.8f,
+            reviewCount = 5_345,
+            reviewAuthor = "John Doe",
+            distance = "5 mill",
+            votes = 5_334,
+
+            isLiked = true,
+            isSaved = true,
+
         )
     )
 }
@@ -49,31 +63,38 @@ fun PreviewScreen() {
 @Composable
 fun PreviewScreenContent(
     state: PlacePreviewState,
+    onEvent: (PlacePreviewEvent) -> Unit = {},
 ) {
 
     Scaffold(
         topBar = {
             NavigationBack(
-                topPadding = 48.dp,
+                topPadding = 58.dp,
                 horizontalPadding = 16.dp,
                 leadingIcon = {
                     PetIconButton(
                         icon = ImageVector.vectorResource(id = R.drawable.ic_arrow_left),
-                        onClick = {}
+                        onClick = {
+                            onEvent(PlacePreviewEvent.Close)
+                        }
                     )
                 },
                 trailingIcon = {
+                    val icon = if (state.isSaved) R.drawable.ic_fill_heart else R.drawable.ic_outline_heart
                     PetIconButton(
                         colors = CustomButtonColors(
-                            icon = SpecialRed,
+                            icon = if (state.isSaved) SpecialRed else SpecialWhite,
                         ),
-                        icon = ImageVector.vectorResource(id = R.drawable.ic_fill_heart),
-                        onClick = {}
+                        icon = ImageVector.vectorResource(id = icon),
+                        onClick = {
+                            if (state.isSaved) onEvent(PlacePreviewEvent.SavePlace) else onEvent(PlacePreviewEvent.SavePlace)
+                        }
                     )
                 },
             )
         },
-    ) { _ ->
+    ) { paddingValues ->
+        Modifier.padding(paddingValues) // TODO: 6/29/21 fix this, paddingValues not working with the top bar if you set to Column layout for this screen
         Column(
             modifier = Modifier.fillMaxSize(),
         ) {
@@ -95,22 +116,28 @@ fun PreviewScreenContent(
                     .padding(bottom = 24.dp),
             ) {
                 ReviewTitle(
-                    title = "Tail-Wagging Trek in Torres del Paine",
+                    title = state.reviewTitle,
                     trailingIcon = {
+                        val icon = if (state.isLiked) R.drawable.ic_fill_hand else R.drawable.ic_outline_like_hand
                         PetIconButton(
-                            icon = ImageVector.vectorResource(id = R.drawable.ic_outline_like_hand),
-                            onClick = {}
+                            colors = CustomButtonColors(
+                                icon = if (state.isLiked) SpecialPurple else SpecialWhite,
+                            ),
+                            icon = ImageVector.vectorResource(id = icon),
+                            onClick = {
+                                if (state.isLiked) onEvent(PlacePreviewEvent.Dislike) else onEvent(PlacePreviewEvent.Like)
+                            }
                         )
                     },
                 )
                 InfoBar(
-                    votes = 5_334.formatWithCommas(),
-                    rating = "3.8",
-                    reviews = "(${5_345.formatNumber()} reviews)",
-                    distance = Pair("5", "mil"),
+                    votes = state.votes.formatWithCommas(),
+                    rating = state.reviewRating.toString(),
+                    reviews = "(${state.reviewCount.formatNumber()} reviews)",
+                    distance = state.distance,
                 )
                 Paragraph(
-                    text = "Torres del Paine National Park is located in the Patagonia region of Chile, and it is widely considered one of the most stunning and diverse natural areas in the world. The park is characterized by its soaring mountains, sparkling lakes, vast glaciers, and pristine wilderness, offering breathtaking views at every turn."
+                    text = state.reviewDescription,
                 )
             }
         }
@@ -127,7 +154,22 @@ fun PreviewScreenContent(
 fun PreviewScreenPreview() {
     PetPalPlacesTheme {
         PreviewScreenContent(
-            state = PlacePreviewState()
+            state = PlacePreviewState(
+                images = listOf(
+                    "https://razadeperro.com/wp-content/uploads/193348577_312970840358471_6044885919976984413_n.jpg",
+                    "https://razadeperro.com/wp-content/uploads/194146329_438787197451164_8444697227989279062_n.jpg",
+                    "https://razadeperro.com/wp-content/uploads/193968429_141891607994621_5387995002231728550_n.jpg",
+                    "https://razadeperro.com/wp-content/uploads/194631788_229112508660969_5271132824087601565_n.jpg",
+                ),
+                reviewTitle = "Tail-Wagging Trek in Torres del Paine",
+                reviewDescription = "Torres del Paine National Park is located in the Patagonia region of Chile, and it is widely considered one of the most stunning and diverse natural areas in the world. The park is characterized by its soaring mountains, sparkling lakes, vast glaciers, and pristine wilderness, offering breathtaking views at every turn.",
+                reviewRating = 3.8f,
+                reviewCount = 5_345,
+                reviewAuthor = "John Doe",
+                distance = "5 mill",
+                votes = 5_334,
+
+                )
         )
     }
 }
