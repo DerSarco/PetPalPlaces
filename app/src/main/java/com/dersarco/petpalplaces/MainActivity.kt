@@ -9,10 +9,8 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowCompat
-import androidx.core.view.WindowInsetsCompat
 import com.dersarco.petpalplaces.ui.screens.login.LoginScreen
+import com.dersarco.petpalplaces.ui.screens.preview.PlacePreviewActivity
 import com.dersarco.petpalplaces.ui.theme.PetPalPlacesTheme
 
 class MainActivity : ComponentActivity() {
@@ -26,6 +24,7 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     LoginScreen()
+                    startActivity(PlacePreviewActivity.create(this))
                 }
             }
         }
