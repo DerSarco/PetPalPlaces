@@ -25,12 +25,12 @@ fun RegisterScreen() {
         Box(modifier = Modifier.fillMaxSize()) {
             Image(
                 modifier = Modifier.matchParentSize(),
-                painter = painterResource(id = R.drawable.background_mobile),
+                painter = painterResource(id = R.drawable.background),
                 contentDescription = "Background",
                 contentScale = ContentScale.FillBounds
             )
             Column(modifier = Modifier.fillMaxSize()) {
-                Header(padding)
+                Header(padding, R.drawable.logo)
                 RegisterForm(padding)
             }
         }

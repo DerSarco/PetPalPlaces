@@ -1,5 +1,6 @@
 package com.dersarco.petpalplaces.ui.screens.components
 
+import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -23,7 +24,8 @@ import com.dersarco.petpalplaces.ui.theme.SpecialPurple
 
 @Composable
 fun Header(
-    paddingValues: PaddingValues
+    paddingValues: PaddingValues = PaddingValues.Absolute(),
+    @DrawableRes logo: Int
 ) {
     Column(
         modifier = Modifier
@@ -45,7 +47,7 @@ fun Header(
             ) {
                 Image(
                     modifier = Modifier.size(96.dp),
-                    imageVector = ImageVector.vectorResource(id = R.drawable.logo),
+                    imageVector = ImageVector.vectorResource(id = logo),
                     contentDescription = "Logo",
                     contentScale = ContentScale.Fit
                 )
@@ -61,6 +63,6 @@ fun LoginHeaderPrev() {
     Scaffold(
         containerColor = SpecialPurple
     ) { padding ->
-        Header(padding)
+        Header(padding, R.drawable.logo)
     }
 }

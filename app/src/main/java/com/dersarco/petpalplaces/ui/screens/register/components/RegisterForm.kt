@@ -7,14 +7,10 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -27,9 +23,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.dersarco.petpalplaces.ui.screens.components.MyClickableText
+import com.dersarco.petpalplaces.ui.screens.components.MyElevatedButton
 import com.dersarco.petpalplaces.ui.screens.login.components.LoginFormFooter
 import com.dersarco.petpalplaces.ui.screens.login.components.MyOutlinedLoginText
-import com.dersarco.petpalplaces.ui.theme.SpecialPurple
 import com.dersarco.petpalplaces.ui.theme.quickSandFamily
 
 @Composable
@@ -97,21 +93,8 @@ fun RegisterForm(paddingValues: PaddingValues) {
                 Spacer(modifier = Modifier.height(12.dp))
                 Spacer(modifier = Modifier.height(16.dp))
                 Spacer(modifier = Modifier.height(96.dp))
-                ElevatedButton(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = 12.dp),
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = SpecialPurple
-                    ),
-                    shape = RoundedCornerShape(10.dp),
-                    onClick = { /*TODO*/ },
-                ) {
-                    Text(
-                        text = "SIGN UP",
-                        fontFamily = quickSandFamily,
-                        fontWeight = FontWeight.Bold
-                    )
+                MyElevatedButton(text = "SIGN UP") {
+                    //TODO
                 }
                 Spacer(modifier = Modifier.height(24.dp))
                 LoginFormFooter()
