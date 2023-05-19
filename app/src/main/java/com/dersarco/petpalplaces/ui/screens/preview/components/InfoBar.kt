@@ -15,6 +15,7 @@ import com.dersarco.petpalplaces.core.extensions.formatNumber
 import com.dersarco.petpalplaces.core.extensions.formatWithCommas
 import com.dersarco.petpalplaces.ui.theme.InfoTagColors
 import com.dersarco.petpalplaces.ui.theme.PetPalPlacesTheme
+import com.dersarco.petpalplaces.ui.theme.SpecialWhite
 import com.dersarco.petpalplaces.ui.theme.SpecialYellow
 
 @Composable
@@ -44,6 +45,9 @@ fun InfoBar(
             )
         )
         InfoTag(
+            colors = InfoTagColors(
+                text = SpecialWhite,
+            ),
             icon = ImageVector.vectorResource(id = R.drawable.ic_fill_route),
             distance = "${distance.first} ${distance.second}",
         )

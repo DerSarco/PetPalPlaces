@@ -31,7 +31,7 @@ fun Paragraph(
         fontFamily = quickSandFamily,
         style = style,
         fontWeight = FontWeight.Bold,
-        color = color,
+        color = color.copy(alpha = 0.8f),
         maxLines = maxLine,
         overflow = TextOverflow.Ellipsis,
         textAlign = align

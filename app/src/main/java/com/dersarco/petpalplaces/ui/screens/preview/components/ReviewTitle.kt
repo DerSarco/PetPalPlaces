@@ -28,7 +28,7 @@ fun ReviewTitle(
     trailingIcon: @Composable (() -> Unit)? = null,
 ) {
     Row(
-        modifier = Modifier.padding(vertical = 16.dp),
+        modifier = Modifier.padding(vertical = 8.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween,
     ) {

@@ -31,3 +31,8 @@ data class InfoTagColors(
     val text: Color = SpecialWhite,
     val detail: Color = SpecialGray,
 )
+
+data class DotIndicatorColors(
+    val selected: Color = SpecialWhite,
+    val unselected: Color = SpecialWhite.copy(alpha = 0.4f),
+)
