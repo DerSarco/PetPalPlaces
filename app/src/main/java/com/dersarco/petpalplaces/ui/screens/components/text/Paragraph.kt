@@ -26,6 +26,7 @@ fun Paragraph(
     align: TextAlign = TextAlign.Start,
 ) {
     Text(
+
         modifier = modifier,
         text = text,
         fontFamily = quickSandFamily,
