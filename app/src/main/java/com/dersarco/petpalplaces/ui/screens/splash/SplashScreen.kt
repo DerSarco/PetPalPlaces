@@ -15,6 +15,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -54,14 +55,14 @@ fun SplashScreen() {
                     verticalArrangement = Arrangement.Center
                 ) {
                     MyCustomText(
-                        text = R.string.pet_pal_splash_title,
+                        text = stringResource(id = R.string.pet_pal_splash_title),
                         fontSize = 24.sp,
                         textAlign = TextAlign.Center,
                         fontWeight = FontWeight.Bold
                     )
                     Spacer(modifier = Modifier.height(10.dp))
                     MyCustomText(
-                        text = R.string.pet_pal_splash_text,
+                        text = stringResource(R.string.pet_pal_splash_text),
                         fontSize = 16.sp,
                         textAlign = TextAlign.Center,
                         fontWeight = FontWeight.Normal
