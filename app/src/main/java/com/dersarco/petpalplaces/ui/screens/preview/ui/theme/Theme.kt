@@ -1,4 +1,4 @@
-package com.dersarco.petpalplaces.ui.theme
+package com.dersarco.petpalplaces.ui.screens.preview.ui.theme
 
 import android.app.Activity
 import android.os.Build
@@ -15,31 +15,16 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
+import com.dersarco.petpalplaces.ui.theme.SpecialBlack
+import com.dersarco.petpalplaces.ui.theme.SpecialPurple
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
-    secondary = PurpleGrey80,
-    tertiary = Pink80,
-    background = SpecialPurple
+    background = SpecialBlack
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
-    secondary = PurpleGrey40,
-    tertiary = Pink40,
-    background = SpecialPurple
-
-
-    /* Other default colors to override
-    background = Color(0xFFFFFBFE),
-    surface = Color(0xFFFFFBFE),
-    onPrimary = Color.White,
-    onSecondary = Color.White,
-    onTertiary = Color.White,
-    onBackground = Color(0xFF1C1B1F),
-    onSurface = Color(0xFF1C1B1F),
-    */
+    background = SpecialBlack
 )
 
 @Composable
@@ -50,12 +35,7 @@ fun PetPalPlacesTheme(
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {
-        dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
-            val context = LocalContext.current
-            //if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
-            if (darkTheme) DarkColorScheme else LightColorScheme
-        }
-
+        dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> if (darkTheme) DarkColorScheme else LightColorScheme
         darkTheme -> DarkColorScheme
         else -> LightColorScheme
     }
@@ -64,16 +44,15 @@ fun PetPalPlacesTheme(
     val systemUiController = rememberSystemUiController()
     SideEffect {
         systemUiController.setSystemBarsColor(
-            //color = if (darkTheme) SpecialPurpleDark else SpecialPurple,
-            color =SpecialPurple,
-            //darkIcons = !darkTheme
+            color = SpecialBlack,
             darkIcons = false
         )
     }
+
     if (!view.isInEditMode) {
         SideEffect {
             val window = (view.context as Activity).window
-            window.statusBarColor = colorScheme.background.toArgb()
+            window.statusBarColor = Color.Transparent.toArgb()
             WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = darkTheme
         }
     }

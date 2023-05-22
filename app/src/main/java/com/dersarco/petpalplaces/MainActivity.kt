@@ -10,7 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.dersarco.petpalplaces.ui.screens.login.LoginScreen
-import com.dersarco.petpalplaces.ui.screens.profile.ProfileScreen
+import com.dersarco.petpalplaces.ui.screens.preview.PlacePreviewActivity
 import com.dersarco.petpalplaces.ui.theme.PetPalPlacesTheme
 
 class MainActivity : ComponentActivity() {
@@ -23,7 +23,8 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    ProfileScreen()
+                    LoginScreen()
+                    startActivity(PlacePreviewActivity.create(this))
                 }
             }
         }
