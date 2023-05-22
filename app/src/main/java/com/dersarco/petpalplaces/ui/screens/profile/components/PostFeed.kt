@@ -34,7 +34,7 @@ fun PostFeed(
         Column(
             modifier = Modifier
                 .clip(RoundedCornerShape(topStart = 15.dp, topEnd = 15.dp))
-                .background(Color.White)
+                .background(Color(0xFFFFFFFF))
                 .constrainAs(column) {
                     top.linkTo(parent.top, margin = 210.dp)
                     bottom.linkTo(parent.bottom)
