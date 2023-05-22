@@ -1,11 +1,9 @@
 package com.dersarco.petpalplaces.ui.screens.profile.components
 
-    import androidx.compose.foundation.background
+import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.gestures.scrollable
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
@@ -15,6 +13,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
@@ -28,25 +27,20 @@ fun ProfileBackground(
     postCounter: Int,
     content: @Composable () -> Unit
 ) {
-    Box(
-        Modifier
-            .fillMaxSize()
+    ConstraintLayout(
+        modifier = Modifier
+            .padding(paddingValues)
             .background(SpecialPurple)
     ) {
-        ConstraintLayout(
-            modifier = Modifier
-                .padding(paddingValues)
-        ) {
-            val (card, column) = createRefs()
-            PostFeed(
-                titleText = titleText,
-                postCounter = postCounter,
-                column = column,
-                content = content
-            )
-            // TODO: Pasar los parámetros para nombre, usuario y mail
-            ProfileBanner(card)
-        }
+        val (card, column) = createRefs()
+        PostFeed(
+            titleText = titleText,
+            postCounter = postCounter,
+            column = column,
+            content = content
+        )
+        // TODO: Pasar los parámetros para nombre, usuario y mail
+        ProfileBanner(card)
     }
 }
 
@@ -61,7 +55,11 @@ fun MyBackgroundPrev() {
             postCounter = 12
         ) {
             LazyVerticalGrid(
-                modifier = Modifier.scrollable(rememberScrollState(), Orientation.Vertical),
+                modifier = Modifier
+                    .background(
+                        Color.White
+                    )
+                    .scrollable(rememberScrollState(), Orientation.Vertical),
                 columns = GridCells.Adaptive(minSize = 128.dp)
             ) {
                 items((1..10).toList()) {

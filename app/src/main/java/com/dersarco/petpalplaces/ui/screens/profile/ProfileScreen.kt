@@ -1,5 +1,6 @@
 package com.dersarco.petpalplaces.ui.screens.profile
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.fillMaxSize
@@ -11,6 +12,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import com.dersarco.petpalplaces.R
 import com.dersarco.petpalplaces.ui.screens.profile.components.ProfileBackground
 import com.dersarco.petpalplaces.ui.screens.profile.components.ProfilePostItem
@@ -26,7 +28,9 @@ fun ProfileScreen() {
         ProfileBackground(paddingValues = paddingValues, titleText = "Posts", postCounter = 12) {
 
             LazyVerticalGrid(
-                modifier = Modifier.scrollable(scrollState, Orientation.Vertical),
+                modifier = Modifier
+                    .scrollable(scrollState, Orientation.Vertical)
+                    .background(Color.White),
                 columns = GridCells.Fixed(3),
                 userScrollEnabled = true
             ) {
