@@ -22,7 +22,7 @@ fun Title(
     style: TextStyle = MaterialTheme.typography.titleLarge,
     align: TextAlign = TextAlign.Start,
     lineHeight: TextUnit = TextUnit.Unspecified,
-    maxLines: Int = 2
+    maxLines: Int = 2,
 ) {
     Text(
         modifier = modifier,

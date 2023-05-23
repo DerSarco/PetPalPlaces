@@ -69,8 +69,11 @@ dependencies {
     implementation "androidx.constraintlayout:constraintlayout-compose:1.0.1"
 
     //Coil
-    implementation("io.coil-kt:coil-compose:2.3.0")
+    implementation("io.coil-kt:coil-compose:2.4.0")
 
+
+    //ViewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1"
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

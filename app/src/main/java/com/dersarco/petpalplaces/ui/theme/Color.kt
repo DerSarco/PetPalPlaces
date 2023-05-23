@@ -36,3 +36,16 @@ data class DotIndicatorColors(
     val selected: Color = SpecialWhite,
     val unselected: Color = SpecialWhite.copy(alpha = 0.4f),
 )
+
+data class ItemPostColors(
+    val background: Color = Color.White,
+    val border: Color = Color.Gray,
+    val title: Color = Color.Black,
+    val buttonColors: OutlineIconButtonColors = OutlineIconButtonColors(),
+)
+data class OutlineIconButtonColors(
+    val background: Color = Color.Black,
+    val border: Color = SpecialWhite,
+    val icon: Color = SpecialWhite,
+)
+
