@@ -16,10 +16,11 @@ import com.dersarco.petpalplaces.ui.theme.quickSandFamily
 @Composable
 fun MyElevatedButton(
     text: String,
+    modifier: Modifier = Modifier,
     onClicked: () -> Unit
 ) {
     ElevatedButton(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .padding(horizontal = 12.dp),
         colors = ButtonDefaults.buttonColors(
