@@ -11,12 +11,10 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.view.WindowCompat
 import com.dersarco.petpalplaces.ui.screens.preview.screens.PreviewScreen
-import com.dersarco.petpalplaces.ui.screens.preview.ui.theme.PetPalPlacesTheme
+import com.dersarco.petpalplaces.ui.screens.preview.ui.theme.PetPalPlacesPreviewTheme
 
 
 class PlacePreviewActivity : ComponentActivity() {
@@ -30,7 +28,7 @@ class PlacePreviewActivity : ComponentActivity() {
         WindowCompat.setDecorFitsSystemWindows(window, false)
 
         setContent {
-            PetPalPlacesTheme {
+            PetPalPlacesPreviewTheme {
                 Surface(
                     modifier = Modifier
                         .fillMaxSize()
@@ -48,7 +46,7 @@ class PlacePreviewActivity : ComponentActivity() {
 @Preview(showBackground = true)
 @Composable
 fun ScreenPreview() {
-    PetPalPlacesTheme {
+    PetPalPlacesPreviewTheme {
         PreviewScreen()
     }
 }

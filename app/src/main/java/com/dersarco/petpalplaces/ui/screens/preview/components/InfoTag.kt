@@ -16,6 +16,7 @@ import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.dersarco.petpalplaces.R
 import com.dersarco.petpalplaces.core.extensions.formatNumber
@@ -32,11 +33,12 @@ fun InfoTag(
     colors: InfoTagColors = InfoTagColors(),
     counter: String,
     detail: String = "Description",
+    verticalPadding: Dp = 8.dp,
 ) {
 
     Row(
         modifier = modifier
-            .padding(vertical = 8.dp),
+            .padding(vertical = verticalPadding),
          verticalAlignment = Alignment.CenterVertically,
     ) {
 
@@ -79,11 +81,12 @@ fun InfoTag(
     icon: ImageVector,
     colors: InfoTagColors = InfoTagColors(),
     distance: String = "5 mil",
+    verticalPadding: Dp = 12.dp,
 ) {
 
     Row(
         modifier = modifier
-            .padding(vertical = 12.dp),
+            .padding(vertical = verticalPadding),
         verticalAlignment = Alignment.CenterVertically,
     ) {
 
