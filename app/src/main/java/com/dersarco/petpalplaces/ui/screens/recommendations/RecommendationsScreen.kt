@@ -1,6 +1,5 @@
 package com.dersarco.petpalplaces.ui.screens.recommendations
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -29,9 +28,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.dersarco.petpalplaces.R
 import com.dersarco.petpalplaces.ui.screens.components.MyCustomText
-import com.dersarco.petpalplaces.ui.screens.preview.components.PetIconButton
 import com.dersarco.petpalplaces.ui.screens.recommendations.components.FillForm
-import com.dersarco.petpalplaces.ui.theme.CustomButtonColors
 import com.dersarco.petpalplaces.ui.theme.PetPalPlacesTheme
 
 @Composable
@@ -73,7 +70,6 @@ fun RecommendationScreen() {
                 .fillMaxWidth()
                 .height(16.dp)
         )
-
         FillForm(modifier = Modifier.fillMaxWidth())
     }
 }
