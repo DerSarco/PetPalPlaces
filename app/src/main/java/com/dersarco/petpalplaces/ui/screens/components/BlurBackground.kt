@@ -34,8 +34,7 @@ fun BlurBackground(
             content()
         }
     }
-
-
+    
 }
 
 @Composable

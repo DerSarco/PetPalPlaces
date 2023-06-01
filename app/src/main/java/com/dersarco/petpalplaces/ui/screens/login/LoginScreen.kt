@@ -13,6 +13,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.dersarco.petpalplaces.R
 import com.dersarco.petpalplaces.ui.screens.components.Header
+import com.dersarco.petpalplaces.ui.screens.components.LogoImage
 import com.dersarco.petpalplaces.ui.screens.login.components.LoginForm
 import com.dersarco.petpalplaces.ui.theme.SpecialPurple
 
@@ -30,7 +31,9 @@ fun LoginScreen() {
                 contentScale = ContentScale.FillBounds
             )
             Column(modifier = Modifier.fillMaxSize()) {
-                Header(padding, R.drawable.logo)
+                Header(padding) {
+                    LogoImage(logo = R.drawable.logo)
+                }
                 LoginForm(padding)
             }
         }
