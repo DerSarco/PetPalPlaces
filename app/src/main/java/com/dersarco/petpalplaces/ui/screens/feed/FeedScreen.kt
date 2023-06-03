@@ -50,9 +50,7 @@ fun FeedScreen() {
 @Composable
 fun FeedScreenPrev() {
     PetPalPlacesTheme {
-        Scaffold { scaffoldPadding ->
-            FeedBackGround(padding = scaffoldPadding) {
-            }
-        }
+        FeedScreen()
+
     }
 }
