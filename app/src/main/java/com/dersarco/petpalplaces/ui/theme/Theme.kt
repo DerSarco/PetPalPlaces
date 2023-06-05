@@ -2,6 +2,7 @@ package com.dersarco.petpalplaces.ui.theme
 
 import android.app.Activity
 import android.os.Build
+import android.util.Log
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
@@ -21,14 +22,16 @@ private val DarkColorScheme = darkColorScheme(
     primary = Purple80,
     secondary = PurpleGrey80,
     tertiary = Pink80,
-    background = SpecialPurple
+    background = SpecialPurple,
+    onBackground = SpecialWhite,
 )
 
 private val LightColorScheme = lightColorScheme(
     primary = Purple40,
     secondary = PurpleGrey40,
     tertiary = Pink40,
-    background = SpecialPurple
+    background = SpecialPurple,
+    onBackground = SpecialWhite,
 
 
     /* Other default colors to override
@@ -44,42 +47,30 @@ private val LightColorScheme = lightColorScheme(
 
 @Composable
 fun PetPalPlacesTheme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
-    // Dynamic color is available on Android 12+
-    dynamicColor: Boolean = true,
+    id: Int = ThemeColor.THEME_LIGHT,
     content: @Composable () -> Unit
 ) {
-    val colorScheme = when {
-        dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
-            val context = LocalContext.current
-            //if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
-            if (darkTheme) DarkColorScheme else LightColorScheme
-        }
 
-        darkTheme -> DarkColorScheme
-        else -> LightColorScheme
-    }
+    val colorScheme = themeList.find { it.id == id } ?: ThemeColor()
+
     val view = LocalView.current
-
     val systemUiController = rememberSystemUiController()
-    SideEffect {
-        systemUiController.setSystemBarsColor(
-            //color = if (darkTheme) SpecialPurpleDark else SpecialPurple,
-            color =SpecialPurple,
-            //darkIcons = !darkTheme
-            darkIcons = false
-        )
-    }
+
     if (!view.isInEditMode) {
         SideEffect {
+            systemUiController.setSystemBarsColor(
+                color = colorScheme.theme.background,
+                darkIcons = !colorScheme.isDark
+            )
+            val colorStatusBar = if (id == ThemeColor.THEME_LIGHT) colorScheme.theme.primary.toArgb() else colorScheme.theme.background.toArgb()
             val window = (view.context as Activity).window
-            window.statusBarColor = colorScheme.background.toArgb()
-            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = darkTheme
+            window.statusBarColor = colorStatusBar
+            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = colorScheme.isDark
         }
     }
 
     MaterialTheme(
-        colorScheme = colorScheme,
+        colorScheme = colorScheme.theme,
         typography = Typography,
         content = content
     )
