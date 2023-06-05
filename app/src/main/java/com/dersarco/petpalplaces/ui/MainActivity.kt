@@ -1,4 +1,4 @@
-package com.dersarco.petpalplaces
+package com.dersarco.petpalplaces.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -10,10 +10,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.dersarco.petpalplaces.ui.screens.login.LoginScreen
-import com.dersarco.petpalplaces.ui.screens.post.PostScreen
-import com.dersarco.petpalplaces.ui.screens.preview.PlacePreviewActivity
+import com.dersarco.petpalplaces.ui.screens.register.RegisterScreen
 import com.dersarco.petpalplaces.ui.theme.PetPalPlacesTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,7 +27,7 @@ class MainActivity : ComponentActivity() {
                 ) {
                     //LoginScreen()
                     //startActivity(PlacePreviewActivity.create(this))
-                    PostScreen()
+                    RegisterScreen()
                 }
             }
         }

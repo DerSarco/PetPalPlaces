@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'com.google.dagger.hilt.android'
 }
 
 android {
@@ -67,11 +69,20 @@ dependencies {
     // Constraint Layout
     implementation "androidx.constraintlayout:constraintlayout-compose:1.0.1"
 
-    //Coil
-    implementation("io.coil-kt:coil-compose:2.4.0")
+    // Coil
+    implementation "io.coil-kt:coil-compose:2.4.0"
 
-    //ViewModel
+    // ViewModel
     implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1"
+
+    // AppWrite
+    implementation "io.appwrite:sdk-for-android:1.1.0"
+
+    // Hilt
+    implementation "com.google.dagger:hilt-android:2.44"
+    implementation "androidx.hilt:hilt-navigation-compose:1.0.0"
+    kapt "com.google.dagger:hilt-compiler:2.44"
+
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

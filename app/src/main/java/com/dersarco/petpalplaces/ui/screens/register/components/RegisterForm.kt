@@ -29,7 +29,10 @@ import com.dersarco.petpalplaces.ui.screens.login.components.MyOutlinedLoginText
 import com.dersarco.petpalplaces.ui.theme.quickSandFamily
 
 @Composable
-fun RegisterForm(paddingValues: PaddingValues) {
+fun RegisterForm(
+    paddingValues: PaddingValues,
+    onRegisterClick: () -> Unit
+) {
     // TODO: Add the state for the register credentials
     Box(
         modifier = Modifier
@@ -94,7 +97,7 @@ fun RegisterForm(paddingValues: PaddingValues) {
                 Spacer(modifier = Modifier.height(16.dp))
                 Spacer(modifier = Modifier.height(96.dp))
                 MyElevatedButton(text = "SIGN UP") {
-                    //TODO
+                    onRegisterClick()
                 }
                 Spacer(modifier = Modifier.height(24.dp))
                 LoginFormFooter()
@@ -109,6 +112,6 @@ fun RegisterForm(paddingValues: PaddingValues) {
 @Composable
 fun RegisterFormPreview() {
     Scaffold { padding ->
-        RegisterForm(padding)
+        RegisterForm(padding){}
     }
 }

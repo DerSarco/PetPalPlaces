@@ -64,7 +64,7 @@ fun RegisterFormFooter() {
 @Composable
 fun RegisterFormPrev() {
     Scaffold {
-        RegisterForm(it)
+        RegisterForm(it){}
     }
 }
 
