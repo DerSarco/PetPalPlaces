@@ -42,7 +42,7 @@ fun RegisterScreen(
                     LogoImage(logo = R.drawable.logo)
                 }
                 RegisterForm(padding) {
-                    viewModel.registerUser(context as ComponentActivity)
+                    viewModel.registerGoogleUser(context as ComponentActivity)
                 }
             }
         }
