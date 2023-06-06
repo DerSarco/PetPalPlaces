@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "com.dersarco.petpalplaces"
-        minSdk 24
+        minSdk 26
         targetSdk 33
         versionCode 1
         versionName "1.0"
@@ -69,6 +69,13 @@ dependencies {
 
     //Coil
     implementation("io.coil-kt:coil-compose:2.4.0")
+
+    //Special Bottom bar
+    implementation 'com.github.erix-mx:special-bottom-bar:0.1.0-alpha01'
+
+    //Nav host
+    def nav_version = "2.5.3"
+    implementation "androidx.navigation:navigation-compose:$nav_version"
 
     //ViewModel
     implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1"
