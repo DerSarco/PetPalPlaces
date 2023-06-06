@@ -168,7 +168,6 @@ fun PreviewScreenPreview() {
                 reviewAuthor = "John Doe",
                 distance = "5 mill",
                 votes = 5_334,
-
                 )
         )
     }

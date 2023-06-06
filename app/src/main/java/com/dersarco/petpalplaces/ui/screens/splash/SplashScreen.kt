@@ -23,6 +23,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.dersarco.petpalplaces.R
 import com.dersarco.petpalplaces.ui.screens.components.Header
+import com.dersarco.petpalplaces.ui.screens.components.LogoImage
 import com.dersarco.petpalplaces.ui.screens.components.MyCustomText
 import com.dersarco.petpalplaces.ui.screens.components.MyElevatedButton
 
@@ -37,7 +38,9 @@ fun SplashScreen() {
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Top
         ) {
-            Header(paddingValues = padding, logo = R.drawable.logo_purple)
+            Header(paddingValues = padding) {
+                LogoImage(logo = R.drawable.logo)
+            }
             Spacer(modifier = Modifier.height(24.dp))
             Image(
                 painter = painterResource(R.drawable.splash_image),

@@ -29,7 +29,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.dersarco.petpalplaces.ui.screens.components.MyClickableText
-import com.dersarco.petpalplaces.ui.screens.components.MyElevatedButton
 import com.dersarco.petpalplaces.ui.theme.SpecialPurple
 import com.dersarco.petpalplaces.ui.theme.quickSandFamily
 
@@ -107,9 +106,6 @@ fun LoginForm(paddingValues: PaddingValues) {
                     )
                 }
                 Spacer(modifier = Modifier.height(96.dp))
-                MyElevatedButton(text = "") {
-
-                }
                 ElevatedButton(
                     modifier = Modifier
                         .fillMaxWidth()
