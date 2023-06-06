@@ -9,7 +9,6 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.dersarco.petpalplaces.ui.screens.home.HomeScreen
 import com.dersarco.petpalplaces.ui.screens.login.LoginScreen
 import com.dersarco.petpalplaces.ui.screens.register.RegisterScreen
 import com.dersarco.petpalplaces.ui.theme.PetPalPlacesTheme
@@ -30,7 +29,7 @@ class MainActivity : ComponentActivity() {
                 //PostScreen()
 
                 //SpecialBottomBarAdd()
-                HomeScreen()
+                RegisterScreen()
 
             }
         }
