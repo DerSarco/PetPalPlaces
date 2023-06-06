@@ -22,7 +22,7 @@ import com.dersarco.petpalplaces.ui.theme.PetPalPlacesTheme
 
 @Composable
 fun ListPlaces(
-    items: List<String> = (0..100).map { "Item $it" },
+    items: List<String> = (0..5).map { "Item $it" },
     itemColors: ItemPostColors = ItemPostColors(),
     isFirstItemVisible: (Boolean) -> Unit = {},
 ) {
