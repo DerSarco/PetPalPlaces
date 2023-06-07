@@ -61,11 +61,14 @@ fun ItemPost(
                     .background(colors.border),
                 contentAlignment = Alignment.Center
             ) {
+                val width = 200;
+                val height = 300;
+                val randomQueryParam = "random=${(0..100).random()}";
                 AsyncImage(
                     modifier = Modifier
                         .background(colors.border),
                     contentScale = ContentScale.Crop,
-                    model = "https://images.unsplash.com/photo-1556905200-279565513a2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3540&q=80",
+                    model = "https://picsum.photos/${width}/${height}?landscape&${randomQueryParam}",
                     contentDescription = null,
                 )
             }

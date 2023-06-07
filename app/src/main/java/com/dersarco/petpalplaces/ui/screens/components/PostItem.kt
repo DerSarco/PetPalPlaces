@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -26,6 +27,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import coil.compose.AsyncImage
 import com.dersarco.petpalplaces.R
 import com.dersarco.petpalplaces.ui.theme.SpecialGray
 import com.dersarco.petpalplaces.ui.theme.SpecialStarColor
@@ -42,10 +44,19 @@ fun PostItem() {
             .height(220.dp)
             .clip(RoundedCornerShape(8.dp))
     ) {
-        Image(
-            painter = painterResource(id = R.drawable.portrait_example),
+
+        //Only demo
+        val width = 200;
+        val height = 300;
+        val randomQueryParam = "random=${(0..100).random()}";
+
+        AsyncImage(
+            //painter = painterResource(id = R.drawable.portrait_example),
+            modifier = Modifier.fillMaxSize(),
+            model = "https://picsum.photos/${width}/${height}?landscape&${randomQueryParam}",
             contentDescription = "Post Item",
             contentScale = ContentScale.Crop
+
         )
         Row(
             modifier = Modifier

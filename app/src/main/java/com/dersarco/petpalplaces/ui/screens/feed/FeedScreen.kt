@@ -48,7 +48,8 @@ fun FeedScreen() {
                 modifier = Modifier
                     .padding(top = 36.dp)
                     .scrollable(scrollState, Orientation.Vertical)
-                    .background(Color.White)
+                    .background(Color.White),
+                contentPadding = PaddingValues(bottom = 76.dp),
             ) {
                 item {
                     MyCustomText(
@@ -68,7 +69,7 @@ fun FeedScreen() {
                     LazyRow(
                         contentPadding = PaddingValues(horizontal = 16.dp),
                     ) {
-                        items((1..3).toList()) {
+                        items((1..6).toList()) {
                             PostItem()
                         }
                     }
