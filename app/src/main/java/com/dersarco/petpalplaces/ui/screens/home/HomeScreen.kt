@@ -73,39 +73,7 @@ fun HomeScreenContent(
                 contentAlignment = Alignment.Center
             ) {
 
-                val navController = rememberNavController()
-                NavHost(
-                    navController = navController,
-                    startDestination = state.currentRoute
-                ) {
-                    composable(AppRoutes.Feed().route) {
-                        //FeedScreen()
-                        Box(
-                            modifier = Modifier
-                                .background(Color.Red)
-                                .fillMaxSize()
-                        )
-                    }
-                    composable(AppRoutes.Favorites().route) {
-                        //FavoritesScreen()
-                        Box(
-                            modifier = Modifier
-                                .background(Color.Blue)
-                                .fillMaxSize()
-                        )
-                    }
-                    composable(AppRoutes.Post().route) {
-                        PostScreen()
-                    }
-                    composable(AppRoutes.Profile().route) {
-                        //ProfileScreen()
-                        Box(
-                            modifier = Modifier
-                                .background(Color.Cyan)
-                                .fillMaxSize()
-                        )
-                    }
-                }
+                NavHome(currentRoute = state.currentRoute)
             }
         }
     }

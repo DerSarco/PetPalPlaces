@@ -30,6 +30,7 @@ fun BottomBarPlus(
     )
 
     SpecialBottomBarPlus(
+        clickAdd = {},
         theme = bottomBarTheme,
         menuItems = listOf(
             SpecialBottom.Item(

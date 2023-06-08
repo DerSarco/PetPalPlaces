@@ -55,8 +55,9 @@ fun FeedBackGround(
         Column(
             modifier = Modifier
                 .background(SpecialPurple)
+                .padding(top = 16.dp)
                 .constrainAs(headerColumn) {
-                    top.linkTo(parent.top, 16.dp)
+                    top.linkTo(parent.top)
                     start.linkTo(parent.start)
                     end.linkTo(parent.end)
                 }
